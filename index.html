@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Beauty Mink Store</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #fff0f5, #ffe4ec);
+    }
+
+    header {
+      background: rgba(214, 87, 150, 0.5);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #ffb6c1;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 20px;
+      margin-right: 70px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff1493;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product video {
+      width: 100%;
+      max-height: 200px;
+      border-radius: 10px;
+    }
+
+    button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #ff1493;
+    }
+    .cart-icon {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      background: #ff69b4;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .cart-icon span {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 4px 6px;
+      font-size: 12px;
+      display: none;
+    }
+    .cart {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background: white;
+      box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+      padding: 15px;
+      overflow-y: auto;
+      transform: translateX(100%); 
+      transition: transform 0.3s ease-in-out;
+      z-index: 999;
+    }
+
+    .cart.open {
+      transform: translateX(0);
+    }
+
+    .cart h2 {
+      text-align: center;
+    }
+
+    .cart ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart li {
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    
+    .video-section {
+      margin-top: 40px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 220px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      background: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.jpg" width="300"></h1>
+  <p>Tienda de maquillaje coreano original</p>
+</header>
+<div style="text-align:center;">
+  <div style="display:flex; justify-content:center; gap:20px; margin-bottom:20px;"></div> 
+<nav>
+  <a href="#">Inicio</a>
+
+  <a href="#Nuestros modelos">Nuestros modelos</a>
+  
+  <a href="#productos">Productos</a>
+
+  <a href="#videos">Videos</a>
+
+  <a href="#contacto">Contacto</a>
+</nav>
+
+  </div>
+  
+<div class="container">
+  <h2 id="productos">Nuestros Productos</h2>
+  <div class="products">
+    <div class="product">
+      <video controls>
+        <source src="grok_video_2026-02-28-10-43-07.mp4" type="video/mp4">
+      </video>
+      <h3>Lip Tint Coreano</h3>
+      <p>$200 MXN</p>
+      <button onclick="addToCart('Lip Tint Coreano', 200, 'Captura de pantalla 2026-04-15 094901.png')">
+    Agregar al carrito
+  </button>
+
+    </div>
+
+    <div class="product">
+      <video controls>
+        <source src="grok_video_2026-02-28-11-22-44.mp4" type="video/mp4">
+      </video>
+      <h3>Base Cushion</h3>
+      <p>$320 MXN</p>
+      <button onclick="addToCart('Base Cushion', 320, 'Captura de pantalla 2026-04-15 094911.png')">
+    Agregar al carrito
+  </button>
+
+    </div>
+
+    <div class="product">
+      <video controls>
+        <source src="grok_video_2026-02-28-11-04-23.mp4" type="video/mp4">
+      </video>
+      <h3>Rubor Coreano</h3>
+      <p>$210 MXN</p>
+      <button onclick="addToCart('Rubor Coreano', 210, 'Captura de pantalla 2026-04-15 094929.png')">
+    Agregar al carrito
+  </button>
+    </div>
+
+    <div class="product">
+      <video controls>
+        <source src="grok_video_2026-02-28-11-20-47.mp4" type="video/mp4">
+      </video>
+      <h3>Paleta de Sombras</h3>
+      <p>$450 MXN</p>
+      <button onclick="addToCart('Paleta de Sombras', 450, 'Captura de pantalla 2026-04-15 094946.png')">
+    Agregar al carrito
+  </button>
+    </div>
+  </div><br>
+
+  <div class="container">
+  <h2 id="Nuestros modelos">Nuestros modelos</h2>
+  <div class="products">
+    <div class="product">
+      <img src="K-BEAUTY MINK_20260507_150924_0000.png" width="200">
+      <h3>KIM JENNIE</h3>
+      <p>Nuestro ultimo lanzamiento ROUGE ECLAT</p>
+      <button onclick="darLike()">
+    👍 Like <span id="likes">0</span>
+</button>
+
+<button onclick="darDislike()">
+    👎 Dislike <span id="dislikes">0</span>
+</button>
+
+<script>
+    let likes = localStorage.getItem("likes") || 0;
+    let dislikes = localStorage.getItem("dislikes") || 0;
+
+    document.getElementById("likes").innerText = likes;
+    document.getElementById("dislikes").innerText = dislikes;
+
+    function darLike() {
+        likes++;
+        localStorage.setItem("likes", likes);
+        document.getElementById("likes").innerText = likes;
+    }
+
+    function darDislike() {
+        dislikes++;
+        localStorage.setItem("dislikes", dislikes);
+        document.getElementById("dislikes").innerText = dislikes;
+    }
+</script>
+    </div>
+
+    <div class="product">
+      <img src="agregar un títuloMINK_20260507_151052_0000.png" width="200">
+      <h3>JENNIE KIM</h3>
+      <p>Nuestro ultimo lanzamiento MINTY</p>
+     <button onclick="darLike()">
+    👍 Like <span id="likes">0</span>
+</button>
+
+<button onclick="darDislike()">
+    👎 Dislike <span id="dislikes">0</span>
+</button>
+
+<script>
+    let likes = localStorage.getItem("likes") || 0;
+    let dislikes = localStorage.getItem("dislikes") || 0;
+
+    document.getElementById("likes").innerText = likes;
+    document.getElementById("dislikes").innerText = dislikes;
+
+    function darLike() {
+        likes++;
+        localStorage.setItem("likes", likes);
+        document.getElementById("likes").innerText = likes;
+    }
+
+    function darDislike() {
+        dislikes++;
+        localStorage.setItem("dislikes", dislikes);
+        document.getElementById("dislikes").innerText = dislikes;
+    }
+</script>
+
+    </div>
+
+    <div class="product">
+      <img src="1778131984032(1).png" width="200">
+      <h3>JENNIFER </h3>
+      <p>Nuestro ultimo lanzamiento VELVET ROUGE</p>
+     <button onclick="darLike()">
+    👍 Like <span id="likes">0</span>
+</button>
+
+<button onclick="darDislike()">
+    👎 Dislike <span id="dislikes">0</span>
+</button>
+
+<script>
+    let likes = localStorage.getItem("likes") || 0;
+    let dislikes = localStorage.getItem("dislikes") || 0;
+
+    document.getElementById("likes").innerText = likes;
+    document.getElementById("dislikes").innerText = dislikes;
+
+    function darLike() {
+        likes++;
+        localStorage.setItem("likes", likes);
+        document.getElementById("likes").innerText = likes;
+    }
+
+    function darDislike() {
+        dislikes++;
+        localStorage.setItem("dislikes", dislikes);
+        document.getElementById("dislikes").innerText = dislikes;
+    }
+</script>
+    </div>
+
+    <div class="product">
+     <img src="MINK_20260507_151247_0000.png" width="200">
+      <h3>NINI</h3>
+      <p>Nuestro ultimo lanzamiento ROSELVET</p>
+      <button onclick="darLike()">
+    👍 Like <span id="likes">0</span>
+</button>
+
+<button onclick="darDislike()">
+    👎 Dislike <span id="dislikes">0</span>
+</button>
+
+<script>
+    let likes = localStorage.getItem("likes") || 0;
+    let dislikes = localStorage.getItem("dislikes") || 0;
+
+    document.getElementById("likes").innerText = likes;
+    document.getElementById("dislikes").innerText = dislikes;
+
+    function darLike() {
+        likes++;
+        localStorage.setItem("likes", likes);
+        document.getElementById("likes").innerText = likes;
+    }
+
+    function darDislike() {
+        dislikes++;
+        localStorage.setItem("dislikes", dislikes);
+        document.getElementById("dislikes").innerText = dislikes;
+    }
+</script>
+    </div>
+  </div>
+<button id="openCart">🛒 <span id="count">0</span></button>
+
+<div id="overlay"></div>
+
+<div id="cart">
+<h2>Carrito 🛒</h2>
+
+<div id="cartItems"></div>
+
+<p>Total: $<span id="total">0</span></p>
+
+<h3>Metodo de pago</h3>
+
+<div class="pagos">
+
+<label class="opcion">
+<input type="radio" name="pago">
+<img src="visa23.png" width="50">visa
+</label>
+
+<label class="opcion">
+<input type="radio" name="pago">
+<img src="Mastercard.png" width="60">
+MasterCard
+</label>
+
+<label class="opcion">
+<input type="radio" name="pago">
+<img src="paypal.png" width="50">paypal
+</label>
+
+</div>
+<h3>Dirección de envío</h3>
+
+<textarea id="direccion"
+placeholder="Calle, número, colonia, ciudad..."
+rows="3"
+style="width:100%; padding:5px; border-radius:5px;"></textarea>
+
+<br>
+<br>
+
+<button onclick="clearCart()">Vaciar carrito</button>
+<button onclick="pagar()">Pagar</button>
+
+
+</div>
+
+<div id="ticket">
+<div class="ticket-box">
+
+<h2>K-BEAUTY MINK</h2>
+<hr>
+
+<div id="ticketItems"></div>
+
+<hr>
+<h3>Total: $<span id="ticketTotal"></span></h3>
+<center>
+<img src="Sticker Circular gracias por su Compra Simple Negro.png" width="200">
+</center>
+<br><br>
+<button onclick="cerrarTicket()">Cerrar</button>
+
+</div>
+</div>
+
+
+<style>
+#openCart{
+position:fixed;
+top:20px;
+right:20px;
+background:rgb(18, 232, 214);
+color:white;
+border:none; 
+padding:10px;
+border-radius:10px;
+z-index:10000;
+}
+
+#count{
+background:rgb(101, 214, 8);
+border-radius:50%;
+padding:3px 8px;
+font-size:12px;
+}
+
+#overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0, 0, 0, 0.5);
+opacity:0;
+pointer-events:none;
+transition:0.3s;
+z-index:5000;
+}
+
+#overlay.active{
+opacity:1;
+pointer-events:all;
+}
+
+#cart{
+position:fixed;
+top:0;
+right:-320px;
+width:300px;
+height:100%;
+background:#12bee8;
+color:white;
+padding:20px;
+transition:0.4s;
+z-index:9999;
+overflow:auto;
+}
+
+#cart.active{
+right:0;
+}
+
+.item{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+}
+
+.item img{
+width:50px;
+}
+
+.qty{
+display:flex;
+gap:5px;
+}
+
+
+.pagos{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.opcion{
+border:2px solid white;
+padding:8px;
+border-radius:8px;
+cursor:pointer;
+text-align:center;
+background:#3dccef;
+transition:0.3s;
+}
+
+.opcion:hover{
+transform:scale(1.08);
+background:#3c82bd;
+box-shadow:0 0 10px black;
+}
+
+.opcion:has(input:checked){
+background:#3c82bd;
+border-color:yellow;
+}
+
+.opcion input{
+display:none;
+}
+
+.opcion img{
+display:block;
+margin:auto;
+}
+
+#ticket{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:20000;
+}
+
+.ticket-box{
+background:white;
+padding:20px;
+width:260px;
+border-radius:5px;
+font-family:monospace;
+color:black;
+}
+
+.ticket-box hr{
+border:1px dashed black;
+}
+
+button{
+cursor:pointer;
+}
+</style>
+
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartDiv = document.getElementById("cart");
+const overlay = document.getElementById("overlay");
+
+document.getElementById("openCart").onclick = toggleCart;
+overlay.onclick = toggleCart;
+
+function toggleCart(){
+cartDiv.classList.toggle("active");
+overlay.classList.toggle("active");
+}
+
+function addToCart(name, price, img){
+let item = cart.find(i => i.name === name);
+
+if(item){
+item.qty++;
+}else{
+cart.push({name, price, img, qty:1});
+}
+
+save();
+render();
+}
+
+function changeQty(index, delta){
+cart[index].qty += delta;
+if(cart[index].qty <= 0) cart.splice(index,1);
+save();
+render();
+}
+
+function save(){
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function render(){
+const container = document.getElementById("cartItems");
+container.innerHTML = "";
+
+let total = 0;
+let count = 0;
+
+cart.forEach((item,i)=>{
+total += item.price * item.qty;
+count += item.qty;
+
+container.innerHTML += `
+<div class="item">
+<img src="${item.img}">
+<div>
+${item.name}<br>$${item.price}
+</div>
+<div class="qty">
+<button onclick="changeQty(${i},-1)">-</button>
+${item.qty}
+<button onclick="changeQty(${i},1)">+</button>
+</div>
+</div>
+`;
+});
+
+document.getElementById("total").innerText = total;
+document.getElementById("count").innerText = count;
+}
+
+function clearCart(){
+cart = [];
+save();
+render();
+}
+
+function pagar(){
+
+let direccion = document.getElementById("direccion").value;
+
+if(direccion.trim() === ""){
+alert("Escribe tu dirección");
+return;
+}
+
+let items = document.getElementById("ticketItems");
+items.innerHTML = "";
+
+let total = 0;
+
+cart.forEach(item=>{
+items.innerHTML += `
+${item.name} x${item.qty}<br>
+$${item.price * item.qty}
+<hr>
+`;
+
+total += item.price * item.qty;
+});
+
+items.innerHTML += `
+Dirección:<br>
+${direccion}
+<hr>
+`;
+
+document.getElementById("ticketTotal").innerText = total;
+document.getElementById("ticket").style.display="flex";
+
+clearCart();
+toggleCart();
+
+document.getElementById("direccion").value="";
+}
+function cerrarTicket(){
+document.getElementById("ticket").style.display="none";
+}
+render();
+</script>
+ <font color="darkblue"><h4> CRACTERISITCAS de tu piel </h4></font>
+    <ul> 
+         <li>es el organo mas grande del ser humano</li>
+        <li>constituye la primera defensa biologica del ser humano</li>
+        <li>impide la entrada de organismos paogenos a los organos principales </li>
+        <li>regula la temperatura y metabolismo del cuerpo</li>
+        <li>gracias a ella tenemos el sentido del tacto</li>
+    </ul>
+     <h1 class="title">CUESTIONARIO descubre tu colorimetria</h1>
+
+        <p>Apellidos maternos y paternos:<input type="text" name="apellidos" /></p>
+        <p>Nombre completo:<input type="text" name="nombre" /></p>
+        <p>¿por que quieres saber tu colorimetria?</p>
+        <input name="love1" type="checkbox" vaule="curiosidad" />por curiosidad<br />
+        <input name="love2" type="checkbox" vaule="estilo" />para saber que maquilaje o prendas usar<br />
+        <input name="love3" type="checkbox" vaule="n" />no me intereza mucho<br />
+        <input name="love4" type="checkbox" vaule="escu" />para verme las linda/o<br />
+        <input name="love5" type="checkbox" vaule="recomendacion" />Recomendacion de alguien<br />
+        <p>¿Cual es tu tono de piel ?</p>
+        <input name="nota" type="radio" value="1" />1(muy clara)<br />
+        <input name="nota" type="radio" value="2" />2(oscura)<br />
+        <input name="nota" type="radio" value="3" />3(intermedio)<br />
+        <p>¿cual es tu subtono de piel?</p>
+        <input name="poppy" type="radio" value="1" />1(frio(rosado/rojizo))<br />
+        <input name="poppy" type="radio" value="2" />2(calido( amarillo/dorado))<br />
+        <input name="poppy" type="radio" value="3" />3(neutro)<br/>
+        <p>observa tus venas en la muñeca¿de que color se ven?</p>
+        <input name="study" type="radio" value="1" />1 (azules/morados)<br />
+        <input name="study" type="radio" value="2" />2 (verdosas)<br />
+        <input name="study" type="radio" value="3" />3 (no se dsitingen bien)<br />
+        <input name="study" type="radio" value="4" />4 (son ambas)<br />
+        <p>¿Como reaacciona tu piel al sol?</p>
+        <input name="reaccion" type="radio" value="1" />1 (se quema facilmente)<br />
+        <input name="reaccion" type="radio" value="2" />2 (se broncea poco a poco)<br />
+        <input name="reaccion" type="radio" value="3" />3 (se broncea facilmente)<br />
+        <p>¿De que color son tus ojos?</p>
+        <input name="recom" type="radio" value="1" />1(azules, grises o verdozos claros)<br />
+        <input name="recom" type="radio" value="2" />2(verdes,miel o avena)<br />
+        <input name="recom" type="radio" value="3" />3(cafe oscuros o negros)<br />
+        <p>¿Que color es tu cabello natural?</p>
+        <input name="yes" type="radio" value="1" />1(rubio claro,cenizo o platinado)<br />
+        <input name="yes" type="radio" value="2" />2( castaño claro, dorado o rojizo)<br />
+        <input name="yes" type="radio" value="3" />2(castaño oscuro o negro)<br />
+        <p>¿De que contraste hay entre tu piel, ojos y cabello?</p>
+        <input name="cero" type="radio" value="1" />1(alto contraste )<br />
+        <input name="cero" type="radio" value="2" />2(medio contraste)<br />
+        <input name="cero" type="radio" value="3" />3(bajo contraste)<br />
+        <p>¿que joyeria te favorece mas? cuentanos con tus propias palabras</p>
+        <textarea rows="5" cols="30" name="comentarios"> </textarea>
+        <p>¿prefieres maquillajes que te favorezcan mas?</p>
+        <textarea rows="5" cols="30" name="comentarios"> </textarea>
+        <p>¿cual es tu e-mail? <input type="text" name="e-mail" /></p>
+        <p>
+            <button type="submit">Enviar el formulario por e-mail</button>&nbsp; <button type="reset">cancelar</button> 
+            <div class="container">
+  <h2 id="videos">TUTORIALES DE MAKEUP</h2>
+  <div class="products">
+      <video width="300" height="360" controls>
+  <source src="PinDown.io_@kimsoeraa_1776350522.mp4" type="video/mp4">
+  Tu navegador no soporta el formato de video.
+        </video>
+    </div>
+        </p>
+        <footer id="contacto">
+  <p>© 2026 K-Beauty Store | kbeautymink@gmail.com</p>
+</footer>
+<button id="btnTop">⬆</button>
+
+<style>
+#btnTop{
+position:fixed;
+bottom:30px;
+right:30px;
+width:60px;
+height:60px;
+border:none;
+border-radius:50%;
+background:#ff1493;
+color:white;
+font-size:28px;
+cursor:pointer;
+display:none;
+justify-content:center;
+align-items:center;
+box-shadow:0 0 15px rgba(0,0,0,0.4);
+z-index:9999;
+transition:0.3s;
+animation:flotar 1.2s infinite alternate;
+}
+
+#btnTop:hover{
+background:#ff69b4;
+transform:scale(1.1);
+}
+
+@keyframes flotar{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(-8px);
+}
+}
+</style>
+
+<script>
+
+const btnTop = document.getElementById("btnTop");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 200){
+
+btnTop.style.display = "flex";
+
+}else{
+
+btnTop.style.display = "none";
+
+}
+
+});
+
+btnTop.addEventListener("click",()=>{
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+</script>
+ </html>
