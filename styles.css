@@ -1,0 +1,143 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom, #fff0f5, #ffe4ec);
+}
+
+header {
+  background: #ff69b4;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background: #ffb6c1;
+  padding: 12px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #ff1493;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.product video {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+}
+
+button {
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #ff1493;
+}
+
+/* Ícono del carrito */
+.cart-icon {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background: #ff69b4;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.cart-icon span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 6px;
+  font-size: 12px;
+  display: none;
+}
+
+/* Panel del carrito */
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: white;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+  padding: 15px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.cart.open {
+  transform: translateX(0);
+}
+
+.cart h2 {
+  text-align: center;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+footer {
+  background: #ff69b4;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
